@@ -18,8 +18,17 @@ class MyHash
   end
 
   def []=(key, val)
-    @keys.add(key)
-    additional_array = [key, val]
-    @values << additional_array
+    if @keys.include?(key) # if key already exist
+      @values.each do |pair|
+        if pair.include?(key)
+          pair.pop # remove old value
+          pair << val # new value
+        end
+      end
+    else
+      @keys.add(key)
+      additional_array = [key, val]
+      @values << additional_array
+    end
   end
 end
