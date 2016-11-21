@@ -11,7 +11,7 @@ class MyHash
     if @keys.include?(symbol)
       @values.each do |k, v|
         if symbol == k
-          puts v
+          return v
         end
       end
     end
