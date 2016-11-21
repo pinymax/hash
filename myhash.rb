@@ -1,5 +1,4 @@
 # Hash class
-require 'pry'
 require 'set'
 
 class MyHash
@@ -20,6 +19,7 @@ class MyHash
 
   def []=(key, val)
     @keys.add(key)
-    @values << val
+    additional_array = [key, val]
+    @values << additional_array
   end
 end
